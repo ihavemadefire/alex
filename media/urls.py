@@ -3,20 +3,20 @@ from .views import (
     BookListView, BookDetailView,
     MovieListView, MovieDetailView,
     MusicListView, MusicDetailView,
-    BookCreateView,BookCreateFromISBNView
+    BookCreateView, BookCreateFromISBNView
 )
 
+app_name = 'media'
+
 urlpatterns = [
-    path('books/', BookListView.as_view(), name='book-list'),
+    path('books/', BookListView.as_view(), name='books'),
     path('books/<int:pk>/', BookDetailView.as_view(), name='book-detail'),
-
-    path('movies/', MovieListView.as_view(), name='movie-list'),
-    path('movies/<int:pk>/', MovieDetailView.as_view(), name='movie-detail'),
-
-    path('music/', MusicListView.as_view(), name='music-list'),
-    path('music/<int:pk>/', MusicDetailView.as_view(), name='music-detail'),
-    
     path('books/add/', BookCreateView.as_view(), name='book-add'),
     path('books/add-isbn/', BookCreateFromISBNView.as_view(), name='isbn-lookup'),
 
+    path('movies/', MovieListView.as_view(), name='movies'),
+    path('movies/<int:pk>/', MovieDetailView.as_view(), name='movie-detail'),
+
+    path('music/', MusicListView.as_view(), name='music'),
+    path('music/<int:pk>/', MusicDetailView.as_view(), name='music-detail'),
 ]

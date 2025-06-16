@@ -10,24 +10,24 @@ from django.contrib import messages
 # BOOK VIEWS
 class BookListView(ListView):
     model = Book
-    template_name = 'book_list.html'
+    template_name = 'books.html'
     context_object_name = 'books'
 
 class BookDetailView(DetailView):
     model = Book
-    template_name = 'book_detail.html'
+    template_name = 'book.html'
     context_object_name = 'book'
 
 
 # MOVIE VIEWS
 class MovieListView(ListView):
     model = Movie
-    template_name = 'movie_list.html'
+    template_name = 'movies.html'
     context_object_name = 'movies'
 
 class MovieDetailView(DetailView):
     model = Movie
-    template_name = 'movie_detail.html'
+    template_name = 'movie.html'
     context_object_name = 'movie'
 
 
