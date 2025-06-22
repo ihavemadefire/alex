@@ -1,17 +1,11 @@
 from django.urls import path
-from .views import (
-    BookListView, BookDetailView,
-    MovieListView, MovieDetailView,
-    MusicListView, MusicDetailView
-)
+from .views import SignUpView, SignInView, SignOutView, UserProfileUpdateView
+
+app_name = "users"
 
 urlpatterns = [
-    path('books/', BookListView.as_view(), name='book-list'),
-    path('books/<int:pk>/', BookDetailView.as_view(), name='book-detail'),
-
-    path('movies/', MovieListView.as_view(), name='movie-list'),
-    path('movies/<int:pk>/', MovieDetailView.as_view(), name='movie-detail'),
-
-    path('music/', MusicListView.as_view(), name='music-list'),
-    path('music/<int:pk>/', MusicDetailView.as_view(), name='music-detail'),
+    path("signup/", SignUpView.as_view(), name="signup"),
+    path("login/", SignInView.as_view(), name="login"),
+    path("logout/", SignOutView.as_view(), name="logout"),
+    path("profile/", UserProfileUpdateView.as_view(), name="profile"),
 ]

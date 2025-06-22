@@ -1,0 +1,9 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Account Info</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <a href="{% url 'your_app:account_edit' %}" class="btn btn-secondary">Edit Account</a>
+</div>
+{% endblock %}
