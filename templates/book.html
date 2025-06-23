@@ -7,5 +7,29 @@
     <h1>{{ book.title }}</h1>
     <p>Author: {{ book.author }}</p>
     <p>Description: {{ book.description }}</p>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteBookModal">
+        Delete Book
+    </button>
+</div>
+
+<div class="modal fade" id="deleteBookModal" tabindex="-1" aria-labelledby="deleteBookModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="post" action="{% url 'media:book-delete' book.pk %}">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteBookModalLabel">Confirm Deletion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete <strong>{{ book.title }}</strong>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Yes, delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 {% endblock %}

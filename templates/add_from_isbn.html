@@ -1,12 +1,18 @@
 {% extends '_base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
+
 
 {% block content %}
   <div class="container mt-4">
     <h2>Add a Book by ISBN</h2>
-    <form method="post">
+      <form method="post" id="isbn-lookup-form" action="{% url 'media:book-add-isbn' %}">
       {% csrf_token %}
-      {{ form|crispy }}
+      {% crispy form %}
     </form>
+
   </div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/media/books/form_isbn_lookup.js' %}"></script>
 {% endblock %}

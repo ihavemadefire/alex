@@ -13,17 +13,21 @@ from django.contrib.auth import get_user_model
 
 CustomUser = get_user_model()
 
+
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     template_name = "signup.html"
     success_url = reverse_lazy("users:login")
 
+
 class SignInView(LoginView):
     form_class = CustomAuthenticationForm
     template_name = "login.html"
 
+
 class SignOutView(LogoutView):
     next_page = reverse_lazy("home")
+
 
 class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = CustomUser
