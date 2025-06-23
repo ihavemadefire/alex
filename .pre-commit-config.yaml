@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/psf/black
-    rev: 24.4.2  # or latest
+    rev: 25.1.0  # or latest
     hooks:
       - id: black
         language_version: python3
@@ -13,3 +13,9 @@ repos:
         language: system
         types: [python]
         pass_filenames: false
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.3.0  # Or latest
+    hooks:
+      - id: flake8
+        additional_dependencies: []
