@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.views import View
 from django.urls import reverse_lazy
-from ..forms import BookForm, ISBNLookupForm
+from ..forms.books import BookForm, ISBNLookupForm
 from ..models import Book
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
